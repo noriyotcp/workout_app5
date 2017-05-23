@@ -23,8 +23,8 @@ module WorkoutApp5
     # -- all .rb files in that directory are automatically loaded.
     config.generators do |g|
       g.test_framework :rspec,
-      fixture: true,
-      fixture_replacement: :factory_girl,
+      # fixture: true,
+      # fixture_replacement: :factory_girl,
       view_specs: false,
       routing_specs: false,
       helper_specs: false,

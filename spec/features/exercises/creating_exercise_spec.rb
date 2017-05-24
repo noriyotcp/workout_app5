@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "Exercises::CreatingExercise", type: :feature do
-  before do
-    @john = User.create(email: 'john@example.com', password: 'password')
-    login_as(@john)
-  end
+  let(:john) { User.create(email: 'john@example.com', password: 'password') }
+
+  before { login_as(john) }
 
   scenario 'with valid inputs' do
     visit '/'
@@ -21,7 +20,7 @@ RSpec.feature "Exercises::CreatingExercise", type: :feature do
     expect(page).to have_content 'Exercise has been created'
 
     exercise = Exercise.last
-    expect(current_path).to eq user_exercise_path(@john, exercise)
-    expect(exercise.user_id).to eq @john.id
+    expect(current_path).to eq user_exercise_path(john, exercise)
+    expect(exercise.user_id).to eq john.id
   end
 end

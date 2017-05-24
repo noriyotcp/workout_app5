@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   def index
-    @exercises = current_user.exercises
+    @exercises = current_user.exercises.within_7days
   end
 
   def show

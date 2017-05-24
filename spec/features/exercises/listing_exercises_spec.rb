@@ -10,6 +10,9 @@ RSpec.feature "Exercises::ListingExercises", type: :feature do
   let!(:exercise2) { john.exercises.create(duration_in_min: 55,
                                           workout: 'Weight lifting',
                                           workout_date: 2.days.ago) }
+  let!(:exercise3) { john.exercises.create(duration_in_min: 50,
+                                          workout: 'On treadmill',
+                                          workout_date: 8.days.ago) }
 
   scenario "shows user's workout for last 7 days" do
     visit '/'
@@ -22,6 +25,10 @@ RSpec.feature "Exercises::ListingExercises", type: :feature do
     expect(page).to have_content(exercise2.duration_in_min)
     expect(page).to have_content(exercise2.workout)
     expect(page).to have_content(exercise2.workout_date)
+
+    expect(page).not_to have_content(exercise3.duration_in_min)
+    expect(page).not_to have_content(exercise3.workout)
+    expect(page).not_to have_content(exercise3.workout_date)
   end
 
   scenario 'shows no exercises if none created' do

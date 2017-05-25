@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Hiding Signin Signup Link", type: :feature do
-  let(:john) { User.create!(email: 'john@example.com', password: 'password') }
+  let(:john) { create(:user) }
 
   scenario 'Upon successful signin' do
     visit '/'

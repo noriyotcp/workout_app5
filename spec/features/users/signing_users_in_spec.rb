@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Users::SigningUsersIn", type: :feature do
-  let(:john) { User.create!(email: 'john@example.com', password: 'password') }
+  let(:john) { create(:user) }
 
   scenario 'Users sign in' do
     visit '/'

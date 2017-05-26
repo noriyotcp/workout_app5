@@ -6,24 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-test1 = User.create!(email: 'test1@example.com',
-                     password: 'password',
-                     password_confirmation: 'password',
-                     first_name: 'Test',
-                     last_name: 'One')
+20.times { FactoryGirl.create(:user) }
+# test1 = User.create!(email: 'test1@example.com',
+#                     password: 'password',
+#                     password_confirmation: 'password',
+#                     first_name: 'Test',
+#                     last_name: 'One')
 
-test2 = User.create!(email: 'test2@example.com',
-                     password: 'password',
-                     password_confirmation: 'password',
-                     first_name: 'Test',
-                     last_name: 'Two')
+# test2 = User.create!(email: 'test2@example.com',
+#                     password: 'password',
+#                     password_confirmation: 'password',
+#                     first_name: 'Test',
+#                     last_name: 'Two')
 
-test1.exercises.create(duration_in_min: 20,
+user = User.first
+user.exercises.create(duration_in_min: 20,
                                         workout: 'My body building activity',
                                         workout_date: Date.today)
-test1.exercises.create(duration_in_min: 55,
+user.exercises.create(duration_in_min: 55,
                                         workout: 'Weight lifting',
                                         workout_date: 2.days.ago)
-test1.exercises.create(duration_in_min: 50,
+user.exercises.create(duration_in_min: 50,
                                           workout: 'On treadmill',
                                           workout_date: 8.days.ago)

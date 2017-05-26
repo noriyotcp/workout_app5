@@ -5,7 +5,7 @@ FactoryGirl.define do
     end
     password 'password'
     password_confirmation 'password'
-    first_name 'John'
-    last_name 'Doe'
+    first_name { generate :first_name }
+    last_name { generate :last_name }
   end
 end

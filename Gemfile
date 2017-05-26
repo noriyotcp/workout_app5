@@ -30,8 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass', '~>3.3.6'
-gem 'devise', '~>4.2.0'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'devise', '~> 4.2.0'
 gem 'annotate'
 gem 'jquery-ui-rails', '5.0.5'
 gem 'd3-rails', '4.1.0'
@@ -51,8 +51,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard', '~>2.14.0'
-  gem 'guard-rspec', '~>4.7.2'
+  gem 'guard', '~> 2.14.0'
+  gem 'guard-rspec', '~> 4.7.2'
 end
 
 group :test do

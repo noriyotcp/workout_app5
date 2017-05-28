@@ -6,18 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+FactoryGirl.create(:user, first_name: 'Test', last_name: 'First')
 20.times { FactoryGirl.create(:user) }
-# test1 = User.create!(email: 'test1@example.com',
-#                     password: 'password',
-#                     password_confirmation: 'password',
-#                     first_name: 'Test',
-#                     last_name: 'One')
-
-# test2 = User.create!(email: 'test2@example.com',
-#                     password: 'password',
-#                     password_confirmation: 'password',
-#                     first_name: 'Test',
-#                     last_name: 'Two')
 
 user = User.first
 user.exercises.create(duration_in_min: 20,
@@ -29,3 +19,5 @@ user.exercises.create(duration_in_min: 55,
 user.exercises.create(duration_in_min: 50,
                                           workout: 'On treadmill',
                                           workout_date: 8.days.ago)
+
+(User.count - 1).times { FactoryGirl.create(:friendship) }

@@ -16,7 +16,10 @@
 
 FactoryGirl.define do
   factory :friendship do
-    user nil
-    friend nil
+    user User.first
+    sequence :friend do |n|
+      # form a friendship with other users
+      User.find(n+1) # from id: 2
+    end
   end
 end

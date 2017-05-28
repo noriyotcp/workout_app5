@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Exercises::ListingExercises", type: :feature do
   let!(:john) { create(:user) }
+  let!(:sarah) { create(:user) }
   before { login_as(john) }
 
   let!(:exercise1) { john.exercises.create(duration_in_min: 20,
@@ -38,5 +39,16 @@ RSpec.feature "Exercises::ListingExercises", type: :feature do
     click_link 'My Lounge'
 
     expect(page).to have_content 'No Workouts Yet'
+  end
+
+  scenario "shows a list of user's friends" do
+    Friendship.create(user: john, friend: sarah)
+
+    visit '/'
+    click_link 'My Lounge'
+
+    expect(page).to have_content("My Friends")
+    expect(page).to have_link(sarah.full_name)
+    expect(page).to have_link("Unfollow")
   end
 end

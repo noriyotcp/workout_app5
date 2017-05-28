@@ -5,7 +5,7 @@
 $(document).ready ->
   $('#exercise_workout_date').datepicker dateFormat: 'yy-mm-dd'
 
-  regex = /\/users\/\d+\/exercises$/i
+  regex = /\/users\/\d+\/exercises$|\/friendships\/\d+$/i
 
   if $(location).attr('pathname').match(regex)
     drawChart()

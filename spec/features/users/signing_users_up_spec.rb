@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "Users::SigningUsersUp", type: :feature do
+  let(:user) { User.last }
+  let(:room) { user.room }
+  let(:room_name) { user.full_name.split.join('-') }
+
   scenario 'with valid credentials' do
     visit '/'
     click_link 'Sign up'
@@ -14,6 +18,8 @@ RSpec.feature "Users::SigningUsersUp", type: :feature do
     click_button 'Sign up'
 
     expect(page).to have_content 'You have signed up successfully.'
+
+    expect(room.name).to eq room_name
 
     visit '/'
     expect(page).to have_content 'John Doe'

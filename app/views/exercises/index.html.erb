@@ -47,6 +47,18 @@
   <div id="chat-window">
     <header><%= current_room.name %></header>
 
+    <div class="col-md-2" id="followers">
+      <% @followers.each do |follower| %>
+        <%= link_to follower.friend.full_name, user_exercises_path(current_user, roomId: follower.user.room.id), class: 'followers' %>
+      <% end %>
+    </div>
+
+    <div id="chat-box" data-channel="rooms" data-room-id=<%= current_room.id %>>
+      <% @messages.each do |message| %>
+        <%= render 'shared/message', message: message %>
+      <% end %>
+    </div>
+
     <div id="form-box">
       <%= form_for @message do |f| %>
         <%= f.text_field :body, id: 'message-field', class: 'form-control pull-left' %>

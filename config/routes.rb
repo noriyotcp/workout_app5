@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+
   devise_for :users, controllers: { registrations: 'registrations' }
 
   root to: 'dashboards#index'
@@ -14,4 +16,5 @@ Rails.application.routes.draw do
   end
 
   resources :friendships, only: [:show, :create, :destroy]
+  resources :messages, only: [:create]
 end

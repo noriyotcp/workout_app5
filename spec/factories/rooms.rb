@@ -15,7 +15,7 @@
 
 FactoryGirl.define do
   factory :room do
-    name "MyString"
-    user nil
+    # name "MyString"
+    # user nil
   end
 end

@@ -33,5 +33,8 @@ FactoryGirl.define do
     password_confirmation 'password'
     first_name { generate :first_name }
     last_name { generate :last_name }
+    after(:create) do |user|
+      create(:room, user: user, name: "#{user.first_name}-#{user.last_name}")
+    end
   end
 end

@@ -1,19 +1,21 @@
 # == Schema Information
 #
-# Table name: rooms
+# Table name: messages
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  body       :text
 #  user_id    :integer
+#  room_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_rooms_on_user_id  (user_id)
+#  index_messages_on_room_id  (room_id)
+#  index_messages_on_user_id  (user_id)
 #
 
-class Room < ApplicationRecord
+class Message < ApplicationRecord
   belongs_to :user
-  has_many :messages
+  belongs_to :room
 end

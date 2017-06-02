@@ -40,6 +40,10 @@ gem 'will_paginate-bootstrap', '~> 1.0.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'better_errors'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails', '3.5.1'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -58,6 +62,7 @@ end
 
 group :test do
   gem 'capybara', '2.7.1'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

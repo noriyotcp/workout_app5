@@ -51,4 +51,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Set your host address
+  config.action_cable.allowed_request_origins = ['https://ruby-rails-5-bdd-rspec-capybara-noriyotcp.c9users.io']
+  # Avoid from getting an error 'Cannot render console from Allowed networks'
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
 end

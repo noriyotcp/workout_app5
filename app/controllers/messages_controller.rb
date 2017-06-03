@@ -5,8 +5,10 @@ class MessagesController < ApplicationController
     @message = current_user.messages.build(message_params)
     @message.room = current_user.room
 
-    @message.save
-    redirect_to user_exercises_path(current_user)
+    if @message.save
+      ActionCable.server.broadcast "messages_room_#{current_room.id}",
+                    render(partial: 'shared/message', object: @message)
+    end
   end
 
   private
